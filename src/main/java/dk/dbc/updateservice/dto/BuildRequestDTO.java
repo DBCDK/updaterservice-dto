@@ -30,6 +30,18 @@ public class BuildRequestDTO {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BuildRequestDTO that = (BuildRequestDTO) o;
+
+        if (schemaName != null ? !schemaName.equals(that.schemaName) : that.schemaName != null) return false;
+        if (bibliographicRecordDTO != null ? !bibliographicRecordDTO.equals(that.bibliographicRecordDTO) : that.bibliographicRecordDTO != null) return false;
+        return trackingId != null ? trackingId.equals(that.trackingId) : that.trackingId == null;
+
+    }
+    @Override
     public int hashCode() {
         int result = schemaName != null ? schemaName.hashCode() : 0;
         result = 31 * result + (bibliographicRecordDTO != null ? bibliographicRecordDTO.hashCode() : 0);
