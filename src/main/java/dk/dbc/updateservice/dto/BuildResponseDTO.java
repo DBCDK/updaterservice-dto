@@ -20,6 +20,17 @@ public class BuildResponseDTO {
         this.buildStatusEnumDTO = buildStatusEnumDTO;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BuildResponseDTO that = (BuildResponseDTO) o;
+
+        if (buildStatusEnumDTO != null ? !buildStatusEnumDTO.equals(that.buildStatusEnumDTO) : that.buildStatusEnumDTO != null) return false;
+        return bibliographicRecordDTO != null ? bibliographicRecordDTO.equals(that.bibliographicRecordDTO) : that.bibliographicRecordDTO == null;
+
+    }
 
     @Override
     public int hashCode() {
