@@ -48,9 +48,9 @@ public class DoubleRecordFrontendStatusDTO {
 
     @Override
     public String toString() {
-        return "DoubleRecordFrontendStatus{" +
+        return "DoubleRecordFrontendStatusDTO{" +
                 "status='" + status + '\'' +
-                ", doubleRecordFrontendContents=" + doubleRecordFrontendDTOs +
+                ", doubleRecordFrontendDTOs=" + doubleRecordFrontendDTOs +
                 '}';
     }
 }
