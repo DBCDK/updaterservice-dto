@@ -1,14 +1,14 @@
 package dk.dbc.opencatbusiness.dto;
 
 public class CheckDoubleRecordFrontendRequestDTO {
-    private String recordContent;
+    private String record;
 
-    public String getRecordContent() {
-        return recordContent;
+    public String getRecord() {
+        return record;
     }
 
-    public void setRecordContent(String recordContent) {
-        this.recordContent = recordContent;
+    public void setRecord(String record) {
+        this.record = record;
     }
 
     @Override
@@ -18,18 +18,18 @@ public class CheckDoubleRecordFrontendRequestDTO {
 
         CheckDoubleRecordFrontendRequestDTO that = (CheckDoubleRecordFrontendRequestDTO) o;
 
-        return recordContent != null ? recordContent.equals(that.recordContent) : that.recordContent == null;
+        return record != null ? record.equals(that.record) : that.record == null;
     }
 
     @Override
     public int hashCode() {
-        return recordContent != null ? recordContent.hashCode() : 0;
+        return record != null ? record.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "CheckDoubleRecordFrontendRequestDTO{" +
-                "recordContent='" + recordContent + '\'' +
+                "record='" + record + '\'' +
                 '}';
     }
 }
