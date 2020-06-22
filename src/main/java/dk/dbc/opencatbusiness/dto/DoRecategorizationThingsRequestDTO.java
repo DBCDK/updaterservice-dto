@@ -49,4 +49,13 @@ public class DoRecategorizationThingsRequestDTO {
         result = 31 * result + (newRecord != null ? newRecord.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "DoRecategorizationThingsRequestDTO{" +
+                "currentRecord='" + currentRecord + '\'' +
+                ", updateRecord='" + updateRecord + '\'' +
+                ", newRecord='" + newRecord + '\'' +
+                '}';
+    }
 }
