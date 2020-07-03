@@ -6,6 +6,14 @@ public class GetValidateSchemasRequestDTO {
     String templateGroup;
     Set<String> allowedLibraryRules;
 
+    public String getTemplateGroup() {
+        return templateGroup;
+    }
+
+    public void setTemplateGroup(String templateGroup) {
+        this.templateGroup = templateGroup;
+    }
+
     public Set<String> getAllowedLibraryRules() {
         return allowedLibraryRules;
     }
