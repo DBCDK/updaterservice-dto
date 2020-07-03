@@ -1,23 +1,17 @@
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Set;
+
 public class GetValidateSchemasRequestDTO {
-    String groupId;
     String templateGroup;
+    Set<String> allowedLibraryRules;
 
-    public String getGroupId() {
-        return groupId;
+    public Set<String> getAllowedLibraryRules() {
+        return allowedLibraryRules;
     }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getTemplateGroup() {
-        return templateGroup;
-    }
-
-    public void setTemplateGroup(String templateGroup) {
-        this.templateGroup = templateGroup;
+    public void setAllowedLibraryRules(Set<String> allowedLibraryRules) {
+        this.allowedLibraryRules = allowedLibraryRules;
     }
 
     @Override
@@ -27,22 +21,23 @@ public class GetValidateSchemasRequestDTO {
 
         GetValidateSchemasRequestDTO that = (GetValidateSchemasRequestDTO) o;
 
-        if (groupId != null ? !groupId.equals(that.groupId) : that.groupId != null) return false;
-        return templateGroup != null ? templateGroup.equals(that.templateGroup) : that.templateGroup == null;
+        if (templateGroup != null ? !templateGroup.equals(that.templateGroup) : that.templateGroup != null)
+            return false;
+        return allowedLibraryRules != null ? allowedLibraryRules.equals(that.allowedLibraryRules) : that.allowedLibraryRules == null;
     }
 
     @Override
     public int hashCode() {
-        int result = groupId != null ? groupId.hashCode() : 0;
-        result = 31 * result + (templateGroup != null ? templateGroup.hashCode() : 0);
+        int result = templateGroup != null ? templateGroup.hashCode() : 0;
+        result = 31 * result + (allowedLibraryRules != null ? allowedLibraryRules.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "GetValidateSchemasRequestDTO{" +
-                "groupId='" + groupId + '\'' +
-                ", templateGroup='" + templateGroup + '\'' +
+                "templateGroup='" + templateGroup + '\'' +
+                ", allowedLibraryRules=" + allowedLibraryRules +
                 '}';
     }
 }
