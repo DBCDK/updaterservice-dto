@@ -1,6 +1,9 @@
-package dk.dbc.updateservice.dto;
+/*
+ * Copyright Dansk Bibliotekscenter a/s. Licensed under GNU GPL v3
+ *  See license text at https://opensource.dbc.dk/licenses/gpl-3.0
+ */
 
-import javax.xml.bind.annotation.XmlEnumValue;
+package dk.dbc.updateservice.dto;
 
 public enum BuildStatusEnumDTO {
     OK("ok"),
@@ -11,10 +14,12 @@ public enum BuildStatusEnumDTO {
     FAILED_INTERNAL_ERROR("failed_internal_error");
     private final String value;
 
-    BuildStatusEnumDTO(String v) {this.value = v;}
+    BuildStatusEnumDTO(String v) {
+        this.value = v;
+    }
 
     public static BuildStatusEnumDTO fromValue(String value) {
-        for (BuildStatusEnumDTO buildStatusEnumDTO: BuildStatusEnumDTO.values()) {
+        for (BuildStatusEnumDTO buildStatusEnumDTO : BuildStatusEnumDTO.values()) {
             if (buildStatusEnumDTO.value.equals(value.toLowerCase())) {
                 return buildStatusEnumDTO;
             }
