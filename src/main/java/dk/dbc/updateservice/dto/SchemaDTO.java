@@ -25,6 +25,16 @@ public class SchemaDTO {
         this.schemaInfo = schemaInfo;
     }
 
+    // Explicit define default constructor as there is another constructor
+    public SchemaDTO() {
+
+    }
+
+    public SchemaDTO(String schemaName, String schemaInfo) {
+        this.schemaName = schemaName;
+        this.schemaInfo = schemaInfo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
