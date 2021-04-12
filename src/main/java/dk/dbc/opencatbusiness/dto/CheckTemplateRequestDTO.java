@@ -5,10 +5,13 @@
 
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Objects;
+
 public class CheckTemplateRequestDTO {
-    String name;
-    String groupId;
-    String libraryType;
+    private String name;
+    private String groupId;
+    private String libraryType;
+    private String trackingId;
 
     public String getName() {
         return name;
@@ -34,24 +37,25 @@ public class CheckTemplateRequestDTO {
         this.libraryType = libraryType;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         CheckTemplateRequestDTO that = (CheckTemplateRequestDTO) o;
-
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (groupId != null ? !groupId.equals(that.groupId) : that.groupId != null) return false;
-        return libraryType != null ? libraryType.equals(that.libraryType) : that.libraryType == null;
+        return name.equals(that.name) && groupId.equals(that.groupId) && libraryType.equals(that.libraryType) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (groupId != null ? groupId.hashCode() : 0);
-        result = 31 * result + (libraryType != null ? libraryType.hashCode() : 0);
-        return result;
+        return Objects.hash(name, groupId, libraryType, trackingId);
     }
 
     @Override
@@ -60,6 +64,7 @@ public class CheckTemplateRequestDTO {
                 "name='" + name + '\'' +
                 ", groupId='" + groupId + '\'' +
                 ", libraryType='" + libraryType + '\'' +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }

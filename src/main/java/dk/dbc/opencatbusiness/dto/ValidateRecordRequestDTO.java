@@ -5,9 +5,12 @@
 
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Objects;
+
 public class ValidateRecordRequestDTO {
-    String templateName;
-    String record;
+    private String templateName;
+    private String record;
+    private String trackingId;
 
     public String getTemplateName() {
         return templateName;
@@ -25,22 +28,25 @@ public class ValidateRecordRequestDTO {
         this.record = record;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         ValidateRecordRequestDTO that = (ValidateRecordRequestDTO) o;
-
-        if (templateName != null ? !templateName.equals(that.templateName) : that.templateName != null) return false;
-        return record != null ? record.equals(that.record) : that.record == null;
+        return templateName.equals(that.templateName) && record.equals(that.record) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        int result = templateName != null ? templateName.hashCode() : 0;
-        result = 31 * result + (record != null ? record.hashCode() : 0);
-        return result;
+        return Objects.hash(templateName, record, trackingId);
     }
 
     @Override
@@ -48,6 +54,7 @@ public class ValidateRecordRequestDTO {
         return "ValidateRecordRequestDTO{" +
                 "templateName='" + templateName + '\'' +
                 ", record='" + record + '\'' +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }

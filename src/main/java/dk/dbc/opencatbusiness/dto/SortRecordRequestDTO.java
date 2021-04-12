@@ -5,9 +5,12 @@
 
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Objects;
+
 public class SortRecordRequestDTO {
-    String templateProvider;
-    String record;
+    private String templateProvider;
+    private String record;
+    private String trackingId;
 
     public String getTemplateProvider() {
         return templateProvider;
@@ -25,23 +28,25 @@ public class SortRecordRequestDTO {
         this.record = record;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         SortRecordRequestDTO that = (SortRecordRequestDTO) o;
-
-        if (templateProvider != null ? !templateProvider.equals(that.templateProvider) : that.templateProvider != null)
-            return false;
-        return record != null ? record.equals(that.record) : that.record == null;
+        return templateProvider.equals(that.templateProvider) && record.equals(that.record) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        int result = templateProvider != null ? templateProvider.hashCode() : 0;
-        result = 31 * result + (record != null ? record.hashCode() : 0);
-        return result;
+        return Objects.hash(templateProvider, record, trackingId);
     }
 
     @Override
@@ -49,6 +54,7 @@ public class SortRecordRequestDTO {
         return "SortRecordRequestDTO{" +
                 "templateProvider='" + templateProvider + '\'' +
                 ", record='" + record + '\'' +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }

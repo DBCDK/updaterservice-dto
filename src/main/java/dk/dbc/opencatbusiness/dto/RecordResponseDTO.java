@@ -6,7 +6,7 @@
 package dk.dbc.opencatbusiness.dto;
 
 public class RecordResponseDTO {
-    String record;
+    private String record;
 
     public String getRecord() {
         return record;

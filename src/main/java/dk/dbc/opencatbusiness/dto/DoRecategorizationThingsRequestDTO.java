@@ -5,10 +5,13 @@
 
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Objects;
+
 public class DoRecategorizationThingsRequestDTO {
-    String currentRecord;
-    String updateRecord;
-    String newRecord;
+    private String currentRecord;
+    private String updateRecord;
+    private String newRecord;
+    private String trackingId;
 
     public String getCurrentRecord() {
         return currentRecord;
@@ -34,25 +37,25 @@ public class DoRecategorizationThingsRequestDTO {
         this.newRecord = newRecord;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         DoRecategorizationThingsRequestDTO that = (DoRecategorizationThingsRequestDTO) o;
-
-        if (currentRecord != null ? !currentRecord.equals(that.currentRecord) : that.currentRecord != null)
-            return false;
-        if (updateRecord != null ? !updateRecord.equals(that.updateRecord) : that.updateRecord != null) return false;
-        return newRecord != null ? newRecord.equals(that.newRecord) : that.newRecord == null;
+        return currentRecord.equals(that.currentRecord) && updateRecord.equals(that.updateRecord) && newRecord.equals(that.newRecord) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        int result = currentRecord != null ? currentRecord.hashCode() : 0;
-        result = 31 * result + (updateRecord != null ? updateRecord.hashCode() : 0);
-        result = 31 * result + (newRecord != null ? newRecord.hashCode() : 0);
-        return result;
+        return Objects.hash(currentRecord, updateRecord, newRecord, trackingId);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class DoRecategorizationThingsRequestDTO {
                 "currentRecord='" + currentRecord + '\'' +
                 ", updateRecord='" + updateRecord + '\'' +
                 ", newRecord='" + newRecord + '\'' +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }
