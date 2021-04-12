@@ -8,8 +8,8 @@ package dk.dbc.opencatbusiness.dto;
 import java.util.Objects;
 
 public class CheckTemplateBuildRequestDTO {
-
     private String name;
+    private String trackingId;
 
     public String getName() {
         return name;
@@ -19,23 +19,32 @@ public class CheckTemplateBuildRequestDTO {
         this.name = name;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CheckTemplateBuildRequestDTO that = (CheckTemplateBuildRequestDTO) o;
-        return Objects.equals(name, that.name);
+        return name.equals(that.name) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, trackingId);
     }
 
     @Override
     public String toString() {
         return "CheckTemplateBuildRequestDTO{" +
                 "name='" + name + '\'' +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }

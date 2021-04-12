@@ -5,11 +5,13 @@
 
 package dk.dbc.opencatbusiness.dto;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class GetValidateSchemasRequestDTO {
-    String templateGroup;
-    Set<String> allowedLibraryRules;
+    private String templateGroup;
+    private Set<String> allowedLibraryRules;
+    private String trackingId;
 
     public String getTemplateGroup() {
         return templateGroup;
@@ -27,23 +29,25 @@ public class GetValidateSchemasRequestDTO {
         this.allowedLibraryRules = allowedLibraryRules;
     }
 
+    public String getTrackingId() {
+        return trackingId;
+    }
+
+    public void setTrackingId(String trackingId) {
+        this.trackingId = trackingId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         GetValidateSchemasRequestDTO that = (GetValidateSchemasRequestDTO) o;
-
-        if (templateGroup != null ? !templateGroup.equals(that.templateGroup) : that.templateGroup != null)
-            return false;
-        return allowedLibraryRules != null ? allowedLibraryRules.equals(that.allowedLibraryRules) : that.allowedLibraryRules == null;
+        return templateGroup.equals(that.templateGroup) && allowedLibraryRules.equals(that.allowedLibraryRules) && Objects.equals(trackingId, that.trackingId);
     }
 
     @Override
     public int hashCode() {
-        int result = templateGroup != null ? templateGroup.hashCode() : 0;
-        result = 31 * result + (allowedLibraryRules != null ? allowedLibraryRules.hashCode() : 0);
-        return result;
+        return Objects.hash(templateGroup, allowedLibraryRules, trackingId);
     }
 
     @Override
@@ -51,6 +55,7 @@ public class GetValidateSchemasRequestDTO {
         return "GetValidateSchemasRequestDTO{" +
                 "templateGroup='" + templateGroup + '\'' +
                 ", allowedLibraryRules=" + allowedLibraryRules +
+                ", trackingId='" + trackingId + '\'' +
                 '}';
     }
 }
